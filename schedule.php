@@ -3,7 +3,7 @@
 
 //Array containing Months along with dates. 
 $activeMonths = array(
-	"August" => array(27 => "Celtics",28 => "Lakers", 29 => "Bulls" ),
+	"September" => array(27 => "Celtics",28 => "Lakers", 29 => "Bulls" ),
 	"October" => array(26 => "Miami",28 => "Detroit", 29 => "Cleveland"),
 	"November" => array(1 => "Philadelphia",3 => "Sacramento",5 => "Washington",7 => "Chicago",
 						9 => "Minnesota",11 => "Utah",13 => "Oklahoma City",14 => "Indiana",
@@ -25,22 +25,26 @@ $activeMonths = array(
 	"April" => array(1 => "Brooklyn",4 => "Cleveland",6 => "Brooklyn",8 => "Indiana",10 => "Chicago",12 => "Detroit")
 );
 
-//Check to see if any games are playing in current month. 
 
+//Get current month. 
 $month = date('F');
 
+//Check to see if any games are playing in current month. 
 if(array_key_exists($month, $activeMonths)) {
 	
-//If not, print "No scheduled games this month"
+
+//If so, print the dates they are playing.
 	echo "<h1>". $month . "</h1>";
 	echo $month ."<br><ul>";
 	foreach ($activeMonths[$month] as $monthDate => $teams) {
 	echo "<li>" . $monthDate . " " . $teams .  "</li>";
 	}
 	echo "</ul>";
-
+//If not, print "No scheduled games this month"
 } else {
     echo "No scheduled games this month <br>";
-//If so, print the dates they are playing.
+
 
 }
+
+?>
